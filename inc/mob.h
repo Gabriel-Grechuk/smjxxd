@@ -3,8 +3,7 @@
 
 #include "game_object.h"
 
-typedef enum
-{
+typedef enum {
   // Guns.
   SNIPE,
   MORTAR,
@@ -13,9 +12,11 @@ typedef enum
   VAP,
 
   // Bullets.
-  GUN_BULLET,
+  SNIPE_BULLET,
+  METRALHA_BULLET,
   MORTAR_BULLET,
   EXPLOSION,
+  HOLY_EXPLOSION,
   SPLASH,
 
   // Monsters.
@@ -32,6 +33,7 @@ typedef enum
 /**
  * Apply damage.
  */
-void smjxxd_mob_apply_damage(GameObject mob, GameObject bullet);
+inline void smjxxd_mob_apply_damage(GameObject mob, GameObject bullet,
+                                    u8 distance);
 
 #endif
