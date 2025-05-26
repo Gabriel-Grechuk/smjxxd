@@ -31,6 +31,7 @@ typedef struct
   u8 anim;
   u8 health;
   u8 shield;
+  u8 damage;
 } GameObject;
 
 /**
