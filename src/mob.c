@@ -15,6 +15,7 @@ u16 smjxxd_skeleton_damage_rules(GameObject *bullet);
 u16 smjxxd_mutant_damage_rules(GameObject *bullet);
 u16 smjxxd_ghost_damage_rules(GameObject *bullet);
 u16 smjxxd_imp_damage_rules(GameObject *bullet);
+u16 smjxxd_boss_damage_rules(GameObject *bullet);
 
 inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
                                     u8 distance) {
@@ -36,6 +37,8 @@ inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
   case IMP:
     damage = smjxxd_imp_damage_rules(bullet);
     break;
+  case BOSS:
+    damage = smjxxd_boss_damage_rules(bullet);
   default:
     damage = 0;
   }
@@ -114,4 +117,9 @@ inline u16 smjxxd_imp_damage_rules(GameObject *bullet) {
   default:
     return bullet->damage;
   }
+}
+
+inline u16 smjxxd_boss_damage_rules(GameObject *bullet) {
+  // Will take all damages.
+  return bullet->damage;
 }
