@@ -3,6 +3,8 @@
 
 #include <genesis.h>
 
+#include "mob.h"
+
 typedef struct
 {
   s16 left;
@@ -13,6 +15,7 @@ typedef struct
 
 typedef struct
 {
+  MobType type;
   Sprite *sprite;
   f16 x;
   f16 y;
@@ -27,6 +30,7 @@ typedef struct
   s8 h_offset;
   u8 anim;
   u8 health;
+  u8 shield;
 } GameObject;
 
 /**
