@@ -3,7 +3,33 @@
 
 #include <genesis.h>
 
-#include "mob.h"
+typedef enum {
+  // Guns.
+  SNIPE,
+  MORTAR,
+  METRALHA,
+  HOLY_GRENADE,
+  VAP,
+
+  // Bullets.
+  SNIPE_BULLET,
+  METRALHA_BULLET,
+  MORTAR_BULLET,
+  EXPLOSION,
+  HOLY_EXPLOSION,
+  SPLASH,
+
+  // Monsters.
+  ZOMBIE,
+  SKELETON,
+  MUTANT,
+  GHOST,
+  IMP,
+
+  // The boss.
+  BOSS
+} MobType;
+
 
 typedef struct
 {

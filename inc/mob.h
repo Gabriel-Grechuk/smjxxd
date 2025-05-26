@@ -3,42 +3,15 @@
 
 #include "game_object.h"
 
-typedef enum {
-  // Guns.
-  SNIPE,
-  MORTAR,
-  METRALHA,
-  HOLY_GRENADE,
-  VAP,
-
-  // Bullets.
-  SNIPE_BULLET,
-  METRALHA_BULLET,
-  MORTAR_BULLET,
-  EXPLOSION,
-  HOLY_EXPLOSION,
-  SPLASH,
-
-  // Monsters.
-  ZOMBIE,
-  SKELETON,
-  MUTANT,
-  GHOST,
-  IMP,
-
-  // The boss.
-  BOSS
-} MobType;
-
 /**
  * Initialize a mob.
  */
-inline void smjxxd_mob_init(GameObject *mob, MobType type);
+void smjxxd_mob_init(GameObject *mob, MobType type);
 
 /**
  * Apply damage.
  */
-inline void smjxxd_mob_apply_damage(GameObject mob, GameObject bullet,
+void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
                                     u8 distance);
 
 #endif

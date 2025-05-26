@@ -1,4 +1,5 @@
 #include "mob.h"
+
 #include <tools.h>
 
 #include "utils.h"
@@ -22,9 +23,7 @@ u16 smjxxd_boss_damage_rules(GameObject *bullet);
 /**
  * Module implementations.
  */
-inline void smjxxd_mob_init(GameObject *mob, MobType type) {
-  // TODO: Implement.
-}
+inline void smjxxd_mob_init(GameObject *mob, MobType type) {}
 
 inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
                                     u8 distance) {
@@ -34,28 +33,35 @@ inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
   case ZOMBIE:
     damage = smjxxd_zombie_damage_rules(bullet);
     break;
+
   case SKELETON:
     damage = smjxxd_skeleton_damage_rules(bullet);
     break;
+
   case MUTANT:
     damage = smjxxd_mutant_damage_rules(bullet);
     break;
+
   case GHOST:
     damage = smjxxd_ghost_damage_rules(bullet);
     break;
+
   case IMP:
     damage = smjxxd_imp_damage_rules(bullet);
     break;
+
   case BOSS:
     damage = smjxxd_boss_damage_rules(bullet);
+    break;
+
   default:
     damage = 0;
   }
 
   // Shield first breaks, and then, the mob start to take damage.
-  if (mob->shield >= 0)
+  if (mob->shield > 0)
     mob->shield = smjxxd_utils_drain(mob->shield, damage);
-  else if (mob->health >= 0)
+  else if (mob->health > 0)
     mob->health = smjxxd_utils_drain(mob->health, damage);
 }
 
@@ -76,15 +82,13 @@ inline u16 smjxxd_skeleton_damage_rules(GameObject *bullet) {
 
   // 25% miss chance for gun bullets.
   case SNIPE_BULLET:
-    u16 hit = random() % 4;
-    if (hit == 0)
+    if ((random() % 4) == 0)
       return 0;
     return bullet->damage;
 
   // 50% miss chance for gun bullets.
   case METRALHA_BULLET:
-    u16 hit = random() % 2;
-    if (hit == 0)
+    if ((random() % 2) == 0)
       return 0;
     return bullet->damage;
 
