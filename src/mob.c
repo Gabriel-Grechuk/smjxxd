@@ -1,6 +1,13 @@
 #include "mob.h"
+#include <tools.h>
 
 #include "utils.h"
+
+/**
+ * TODO:
+ * Make the mortar and explosives damage a function of the distance of the mob
+ * from the explosion
+ */
 
 // Some local rules to keep track of mobs specific damage rules.
 u16 smjxxd_zombie_damage_rules(GameObject *bullet);
@@ -9,12 +16,11 @@ u16 smjxxd_mutant_damage_rules(GameObject *bullet);
 u16 smjxxd_ghost_damage_rules(GameObject *bullet);
 u16 smjxxd_imp_damage_rules(GameObject *bullet);
 
-void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet)
-{
+inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
+                                    u8 distance) {
   u16 damage = 0;
 
-  switch (mob->type)
-  {
+  switch (mob->type) {
   case ZOMBIE:
     damage = smjxxd_zombie_damage_rules(bullet);
     break;
@@ -41,27 +47,71 @@ void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet)
     mob->health = smjxxd_utils_drain(mob->health, damage);
 }
 
-u16 smjxxd_skeleton_damage_rules(GameObject *bullet)
-{
-  // TODO: Implement
+inline u16 smjxxd_zombie_damage_rules(GameObject *bullet) {
+  switch (bullet->type) {
+  case SPLASH:
+    return 0;
+
+  default:
+    return bullet->damage;
+  }
 }
 
-u16 smjxxd_skeleton_damage_rules(GameObject *bullet)
-{
-  // TODO: Implement
+inline u16 smjxxd_skeleton_damage_rules(GameObject *bullet) {
+  switch (bullet->type) {
+  case SPLASH:
+    return 0;
+
+  // 25% miss chance for gun bullets.
+  case SNIPE_BULLET:
+    u16 hit = random() % 4;
+    if (hit == 0)
+      return 0;
+    return bullet->damage;
+
+  // 50% miss chance for gun bullets.
+  case METRALHA_BULLET:
+    u16 hit = random() % 2;
+    if (hit == 0)
+      return 0;
+    return bullet->damage;
+
+  default:
+    return bullet->damage;
+  }
 }
 
-u16 smjxxd_mutant_damage_rules(GameObject *bullet)
-{
-  // TODO: Implement
+inline u16 smjxxd_mutant_damage_rules(GameObject *bullet) {
+  switch (bullet->type) {
+  case SPLASH:
+    return 0;
+
+  default:
+    return bullet->damage;
+  }
 }
 
-u16 smjxxd_ghost_damage_rules(GameObject *bullet)
-{
-  // TODO: Implement
+inline u16 smjxxd_ghost_damage_rules(GameObject *bullet) {
+  switch (bullet->type) {
+  // No damage from area attacks.
+  case EXPLOSION:
+  case HOLY_EXPLOSION:
+  case MORTAR_BULLET:
+  case SPLASH:
+    return 0;
+
+  default:
+    return bullet->damage;
+  }
 }
 
-u16 smjxxd_imp_damage_rules(GameObject *bullet)
-{
-  // TODO: Implement
+inline u16 smjxxd_imp_damage_rules(GameObject *bullet) {
+  switch (bullet->type) {
+  // +25% Damage for holy grenades.
+  case HOLY_EXPLOSION:
+    return (u16)(bullet->damage + bullet->damage * 0.25);
+
+  default:
+    return bullet->damage;
+  }
 }
