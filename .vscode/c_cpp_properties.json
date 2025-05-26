@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../sgdk/**",
+                "${workspaceFolder}/inc"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+        }
+    ],
+    "version": 4
+}
