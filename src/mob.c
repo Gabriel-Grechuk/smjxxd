@@ -9,13 +9,22 @@
  * from the explosion
  */
 
-// Some local rules to keep track of mobs specific damage rules.
+/**
+ * Local implementations.
+ */
 u16 smjxxd_zombie_damage_rules(GameObject *bullet);
 u16 smjxxd_skeleton_damage_rules(GameObject *bullet);
 u16 smjxxd_mutant_damage_rules(GameObject *bullet);
 u16 smjxxd_ghost_damage_rules(GameObject *bullet);
 u16 smjxxd_imp_damage_rules(GameObject *bullet);
 u16 smjxxd_boss_damage_rules(GameObject *bullet);
+
+/**
+ * Module implementations.
+ */
+inline void smjxxd_mob_init(GameObject *mob, MobType type) {
+  // TODO: Implement.
+}
 
 inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
                                     u8 distance) {

@@ -31,6 +31,11 @@ typedef enum {
 } MobType;
 
 /**
+ * Initialize a mob.
+ */
+inline void smjxxd_mob_init(GameObject *mob, MobType type);
+
+/**
  * Apply damage.
  */
 inline void smjxxd_mob_apply_damage(GameObject mob, GameObject bullet,
