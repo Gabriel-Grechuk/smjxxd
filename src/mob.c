@@ -27,7 +27,7 @@ inline void smjxxd_mob_init(GameObject *mob, MobType type) {
   case ZOMBIE:
     smjxxd_game_object_init(
         mob, &spr_zombie, SCREEN_W / 2 + (SCREEN_W / (random() % 8 + 1)),
-        smjxxd_utils_random_floor_position(), -4, -4, PAL_MOBS, sprite_index);
+        smjxxd_utils_random_floor_position(), 0, 0, PAL_MOBS, sprite_index);
     mob->speed_x = FIX16(-4);
     break;
 
