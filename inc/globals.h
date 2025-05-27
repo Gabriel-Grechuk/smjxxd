@@ -15,7 +15,6 @@
 #define SCREEN_TILES_W SCREEN_W / 8
 #define SCREEN_TILES_H SCREEN_H / 8
 
-
 // GENERAL VDP CONFIG ///////////////////////////////////
 
 #define PAL_MOBS PAL0
@@ -24,5 +23,7 @@
 #define BG_BACKGROUND BG_B
 
 #define NUMBER_OF_JOYPADS 2
+
+static u16 sprite_index = TILE_USER_INDEX;
 
 #endif

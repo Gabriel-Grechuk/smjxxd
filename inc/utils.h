@@ -6,4 +6,9 @@
 // Decrease and prevent negative numbers.
 u16 smjxxd_utils_drain(u16 value, u16 decrease);
 
+/**
+ * Random positioning in the floor.
+ */
+u16 smjxxd_utils_random_floor_position();
+
 #endif

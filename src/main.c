@@ -3,30 +3,26 @@
 
 #include "globals.h"
 
+#include "background.h"
 #include "game_object.h"
 #include "utils.h"
-#include "background.h"
+#include "world.h"
 
-u16 ind = TILE_USER_INDEX;
-
-void game_init()
-{
+void game_init() {
   VDP_setScreenWidth320();
   SPR_init();
 
-  ind += smjxxd_background_init(ind);
+  sprite_index += smjxxd_background_init(sprite_index);
+  smjxxd_world_spawn_monsters();
 }
 
-static inline void game_update()
-{
+static inline void game_update() {
   // TODO: implement.
 }
 
-int main(bool resetType)
-{
+int main(bool resetType) {
   // Soft reset doesn't clear RAM. Can lead to bugs.
-  if (!resetType)
-  {
+  if (!resetType) {
     SYS_hardReset();
   }
   SYS_showFrameLoad(true);
@@ -36,8 +32,7 @@ int main(bool resetType)
 
   kprintf("Free RAM after Game Init: %d", MEM_getFree());
 
-  while (true)
-  {
+  while (true) {
     game_update();
 
     SPR_update();

@@ -2,6 +2,8 @@
 
 #include <tools.h>
 
+#include "globals.h"
+#include "resources.h"
 #include "utils.h"
 
 /**
@@ -10,9 +12,6 @@
  * from the explosion
  */
 
-/**
- * Local implementations.
- */
 u16 smjxxd_zombie_damage_rules(GameObject *bullet);
 u16 smjxxd_skeleton_damage_rules(GameObject *bullet);
 u16 smjxxd_mutant_damage_rules(GameObject *bullet);
@@ -23,7 +22,31 @@ u16 smjxxd_boss_damage_rules(GameObject *bullet);
 /**
  * Module implementations.
  */
-inline void smjxxd_mob_init(GameObject *mob, MobType type) {}
+inline void smjxxd_mob_init(GameObject *mob, MobType type) {
+  switch (type) {
+  case ZOMBIE:
+    smjxxd_game_object_init(
+        mob, &spr_zombie, SCREEN_W / 2 + (SCREEN_W / (random() % 8 + 1)),
+        smjxxd_utils_random_floor_position(), -4, -4, PAL_MOBS, sprite_index);
+    mob->speed_x = FIX16(-4);
+    break;
+
+  case SKELETON:
+    break;
+
+  case MUTANT:
+    break;
+
+  case GHOST:
+    break;
+
+  case IMP:
+    break;
+
+  case BOSS:
+    break;
+  }
+}
 
 inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
                                     u8 distance) {
@@ -65,6 +88,9 @@ inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
     mob->health = smjxxd_utils_drain(mob->health, damage);
 }
 
+/**
+ * Local implementations.
+ */
 inline u16 smjxxd_zombie_damage_rules(GameObject *bullet) {
   switch (bullet->type) {
   case SPLASH:
