@@ -19,7 +19,7 @@ u16 smjxxd_ghost_damage_rules(GameObject *bullet);
 u16 smjxxd_imp_damage_rules(GameObject *bullet);
 u16 smjxxd_boss_damage_rules(GameObject *bullet);
 
-/**
+/******************************************************************************
  * Module implementations.
  */
 inline void smjxxd_mob_init(GameObject *mob, MobType type) {
@@ -88,7 +88,7 @@ inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
     mob->health = smjxxd_utils_drain(mob->health, damage);
 }
 
-/**
+/******************************************************************************
  * Local implementations.
  */
 inline u16 smjxxd_zombie_damage_rules(GameObject *bullet) {
