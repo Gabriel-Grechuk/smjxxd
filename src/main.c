@@ -16,10 +16,6 @@ void game_init() {
   smjxxd_world_spawn_monsters();
 }
 
-static inline void game_update() {
-  // TODO: implement.
-}
-
 int main(bool resetType) {
   // Soft reset doesn't clear RAM. Can lead to bugs.
   if (!resetType) {
@@ -30,10 +26,9 @@ int main(bool resetType) {
 
   SYS_doVBlankProcess();
 
-  kprintf("Free RAM after Game Init: %d", MEM_getFree());
 
   while (true) {
-    game_update();
+    smjxxd_world_update();
 
     SPR_update();
     SYS_doVBlankProcess();
