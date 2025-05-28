@@ -13,7 +13,6 @@ void smjxxd_world_spawn(WaveMonsters *wave);
 void smjxxd_world_update() {
   GameObject *mob = &monster_list[0];
   for (u8 i = 0; i < mob_count; ++i, ++mob) {
-    KLog_U1("Updating monster ", (u32)mob);
     mob->x += mob->speed_x;
     mob->y += mob->speed_y;
 
@@ -22,13 +21,16 @@ void smjxxd_world_update() {
   }
 }
 
-void smjxxd_world_spawn_monsters() { smjxxd_world_spawn(waves[wave]); }
+void smjxxd_world_spawn_monsters() {
+  KLog_U1("Monster amount: ", 1010);
+  smjxxd_world_spawn(waves[wave]);
+}
 
 // ERROR: This one is buggy:
 inline void smjxxd_world_spawn(WaveMonsters *wave) {
-
-  KLog_U1("Spawn wave: ", wave[1].amount);
-  for (u8 amount = 0; amount < wave[1].amount; amount++, mob_count++){
-    smjxxd_mob_init(&monster_list[amount], wave[1].type);
+  for (u8 i = 0; i < MONSTER_TYPE_COUNT; ++i, ++mob_count) {
+    KLog_U1("Monster amount: ", wave[i].amount);
+    KLog_U1("Monster type: ", wave[i].type);
+    smjxxd_mob_init(&monster_list[mob_count], wave[i].type);
   }
 }

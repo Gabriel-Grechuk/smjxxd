@@ -30,7 +30,7 @@ static GameObject monster_list[MONSTERS_AMOUNT];
  * NOTE: keep all zombies until the other mobs have sprites.
  */
 
-static WaveMonsters waves[7][6] = {
+static WaveMonsters waves[7][MONSTER_TYPE_COUNT] = {
     {
         {.type = ZOMBIE, .amount = 10},
         {.type = SKELETON, .amount = 0},
