@@ -1,6 +1,6 @@
 #include "world.h"
-
 #include "mob.h"
+#include "utils.h"
 
 /**
  * Local implementations.
@@ -22,15 +22,16 @@ void smjxxd_world_update() {
 }
 
 void smjxxd_world_spawn_monsters() {
-  KLog_U1("Monster amount: ", 1010);
   smjxxd_world_spawn(waves[wave]);
+  DEBUG_LOG_NUM("Mob count: ", mob_count);
 }
 
 // ERROR: This one is buggy:
 inline void smjxxd_world_spawn(WaveMonsters *wave) {
-  for (u8 i = 0; i < MONSTER_TYPE_COUNT; ++i, ++mob_count) {
-    KLog_U1("Monster amount: ", wave[i].amount);
-    KLog_U1("Monster type: ", wave[i].type);
-    smjxxd_mob_init(&monster_list[mob_count], wave[i].type);
-  }
+  for (u8 i = 0; i < MONSTER_TYPE_COUNT; i++)
+    for (u8 j = 0; j < wave[i].amount; j++, mob_count++) {
+      smjxxd_mob_init(&monster_list[mob_count], wave[i].type);
+      DEBUG_LOG_NUM("Created monster in address: ",
+                    (u32)&monster_list[mob_count]);
+    }
 }

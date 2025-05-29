@@ -25,11 +25,10 @@ u16 smjxxd_boss_damage_rules(GameObject *bullet);
 inline void smjxxd_mob_init(GameObject *mob, MobType type) {
   switch (type) {
   case ZOMBIE:
-    smjxxd_game_object_init(mob, &spr_zombie, SCREEN_W - 8,
+    smjxxd_game_object_init(mob, &spr_zombie, SCREEN_W + random() % 10,
                             smjxxd_utils_random_floor_position(), 0, 0,
                             PAL_MOBS, sprite_index);
-    mob->speed_x = FIX16(-1);
-    mob->speed_y = FIX16(0);
+    mob->speed_x = smjxxd_utils_random_speed();
     break;
 
   case SKELETON:

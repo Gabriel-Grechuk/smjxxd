@@ -3,7 +3,7 @@
 
 #include <genesis.h>
 
-// #define DEBUG
+#define DEBUG
 
 // GENERAL SCREEN CONFIG
 #define SCREEN_W 320
