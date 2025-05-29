@@ -9,9 +9,8 @@
 void smjxxd_mob_init(GameObject *mob, MobType type);
 
 /**
- * Apply damage.
+ * Apply damage to a mob.
  */
-void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
-                                    u8 distance);
+void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet, u8 distance);
 
 #endif
