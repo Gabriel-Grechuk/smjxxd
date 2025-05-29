@@ -29,4 +29,35 @@ u16 smjxxd_utils_random_floor_position();
  */
 f16 smjxxd_utils_random_speed();
 
+/**
+ * Convert seconds to frames.
+ */
+u16 smjxxd_utils_seconds_to_frames(f16 t);
+
+/**
+ * Return the amount of velocity a object need to intersect a point in N secs.
+ *
+ * @Args:
+ *   f16 pi: The initial point.
+ *   f16 pf: The final point.
+ *   f16 t:  The desired time.
+ *
+ * @Returns:
+ *   f16: The velocity.
+ *
+ * Consider this:
+ *
+ *    Pi(x, y) + --> Vx
+ *          Vy |\
+ *             v \
+ *                \
+ *                 + Pf(x, y)
+ *
+ * You can decompose the amount of vertical and horizontal velocity the object
+ * in Pi needs to move to intersect the Pf point in 1 second, like:
+ *  f15 Vx = smjxxd_utils_get_velocity_to_reach_point(Pi.x, Pf.x, 1)
+ *  f15 Vy = smjxxd_utils_get_velocity_to_reach_point(Pi.y, Pf.y, 1)
+ */
+f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t);
+
 #endif

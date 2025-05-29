@@ -3,19 +3,19 @@
 #include "globals.h"
 
 // Decrease and prevent negative numbers.
-u16 smjxxd_utils_drain(u16 value, u16 decrease) {
+inline u16 smjxxd_utils_drain(u16 value, u16 decrease) {
   s16 res = value - decrease;
   if (res < 0)
     return 0;
   return res;
 }
 
-u16 smjxxd_utils_random_floor_position() {
+inline u16 smjxxd_utils_random_floor_position() {
   // Assume 4 tile for monster sizes.
   return (random() % ((SCREEN_H / 4))) + (SCREEN_H - (SCREEN_H / 4)) - 32;
 }
 
-f16 smjxxd_utils_random_speed() {
+inline f16 smjxxd_utils_random_speed() {
   // NOTE:
   // The FIX16() macro keeps rounding my small numbers, so I just generate a
   // random int number between 0 and 0x0F (or any other mask) and cast it
@@ -24,4 +24,14 @@ f16 smjxxd_utils_random_speed() {
   // Also makes some OR operation with the last bits to prevent zeros.
   u16 num = -((random() % 0x0F) | 0x05);
   return (f16)num;
+}
+
+inline u16 smjxxd_utils_seconds_to_frames(f16 t) {
+  // For small seconds you may get a 0 here. You should check for this if you
+  // face a "no movement" bug.
+  return fix16ToInt(t * 60);
+}
+
+inline f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t) {
+  return (pf - pi) * FIX16(smjxxd_utils_seconds_to_frames(t));
 }
