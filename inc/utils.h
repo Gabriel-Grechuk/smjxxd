@@ -2,6 +2,7 @@
 #define _SMJXXD_UTILS_H_
 
 #include <genesis.h>
+#include "globals.h"
 
 // DEBUG util
 #ifdef DEBUG
