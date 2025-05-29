@@ -26,7 +26,6 @@ void smjxxd_world_spawn_monsters() {
   DEBUG_LOG_NUM("Mob count: ", mob_count);
 }
 
-// ERROR: This one is buggy:
 inline void smjxxd_world_spawn(WaveMonsters *wave) {
   for (u8 i = 0; i < MONSTER_TYPE_COUNT; i++)
     for (u8 j = 0; j < wave[i].amount; j++, mob_count++) {

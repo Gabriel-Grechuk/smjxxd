@@ -26,10 +26,8 @@ int main(bool resetType) {
 
   SYS_doVBlankProcess();
 
-
   while (true) {
     smjxxd_world_update();
-
     SPR_update();
     SYS_doVBlankProcess();
   }
