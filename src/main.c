@@ -13,7 +13,7 @@ void game_init() {
   SPR_init();
 
   sprite_index += smjxxd_background_init(sprite_index);
-  smjxxd_world_spawn_monsters();
+  smjxxd_world_start_wave();
 }
 
 int main(bool resetType) {

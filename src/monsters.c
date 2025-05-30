@@ -1,4 +1,4 @@
-#include "mob.h"
+#include "monsters.h"
 
 #include <tools.h>
 
@@ -22,11 +22,11 @@ u16 smjxxd_boss_damage_rules(GameObject *bullet);
 /******************************************************************************
  * Module implementations.
  */
-inline void smjxxd_mob_init(GameObject *mob, MobType type) {
+inline void smjxxd_monster_init(GameObject *mob, MobType type) {
   switch (type) {
   case ZOMBIE:
     smjxxd_game_object_init(mob, &spr_zombie, SCREEN_W + random() % 10,
-                            smjxxd_utils_random_floor_position(), 0, 0,
+                            smjxxd_utils_random_floor_position(), -4, -4,
                             PAL_MOBS, sprite_index);
     mob->speed_x = smjxxd_utils_random_speed();
     break;
@@ -48,8 +48,8 @@ inline void smjxxd_mob_init(GameObject *mob, MobType type) {
   }
 }
 
-inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
-                                    u8 distance) {
+inline void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
+                                        u8 distance) {
   u16 damage = 0;
 
   switch (mob->type) {

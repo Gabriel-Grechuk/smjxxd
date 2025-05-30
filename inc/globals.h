@@ -18,6 +18,7 @@
 // GENERAL VDP CONFIG ///////////////////////////////////
 
 #define PAL_MOBS PAL0
+#define PAL_GUNS PAL1
 #define PAL_BACKGROUND PAL3
 
 #define BG_BACKGROUND BG_B
