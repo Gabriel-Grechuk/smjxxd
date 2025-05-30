@@ -7,6 +7,7 @@
 #include "game_object.h"
 #include "utils.h"
 #include "world.h"
+#include "guns.h"
 
 void game_init() {
   VDP_setScreenWidth320();
@@ -14,6 +15,7 @@ void game_init() {
 
   sprite_index += smjxxd_background_init(sprite_index);
   smjxxd_world_start_wave();
+  smjxxd_gun_spawn_metralha_bullet();
 }
 
 int main(bool resetType) {

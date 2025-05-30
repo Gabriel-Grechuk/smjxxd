@@ -1,4 +1,6 @@
 #include "world.h"
+
+#include "guns.h"
 #include "monsters.h"
 #include "utils.h"
 
@@ -15,6 +17,15 @@ inline void smjxxd_world_update() {
 
     smjxxd_game_object_update_boundbox(mob->x, mob->y, mob);
     SPR_setPosition(mob->sprite, mob->box.left, mob->box.top);
+  }
+
+  GameObject *bullet = &bullet_list[0];
+  for (u8 i = 0; i < bullet_count; ++i, ++bullet) {
+    bullet->x += bullet->speed_x;
+    bullet->y += bullet->speed_y;
+
+    smjxxd_game_object_update_boundbox(bullet->x, bullet->y, bullet);
+    SPR_setPosition(bullet->sprite, bullet->box.left, bullet->box.top);
   }
 }
 

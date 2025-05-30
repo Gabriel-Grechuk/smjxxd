@@ -6,7 +6,7 @@
 #include "resources.h"
 #include "utils.h"
 
-void smjxxd_gun_spawn_metralha_bullet() {
+inline void smjxxd_gun_spawn_metralha_bullet() {
   GameObject *bullet = &bullet_list[bullet_count];
   smjxxd_game_object_init(bullet, &spr_metralha_bullet, 150, 150, -2, -2,
                           PAL_GUNS, sprite_index);
