@@ -1,8 +1,8 @@
 #ifndef _SMJXXD_UTILS_H_
 #define _SMJXXD_UTILS_H_
 
-#include "globals.h"
 #include "game_object.h"
+#include "globals.h"
 #include <genesis.h>
 
 // DEBUG util
@@ -63,5 +63,10 @@ f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t);
  * Check overlap.
  */
 bool smjxxd_utils_check_overlap(GameObject *obj1, GameObject *obj2);
+
+/**
+ * Close the gaps in a array of N elements
+ */
+void smjxxd_utils_close_array_gaps(GameObject *arr, u8 n);
 
 #endif

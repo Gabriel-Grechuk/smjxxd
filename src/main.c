@@ -18,7 +18,6 @@ void game_init() {
 
   sprite_index += smjxxd_background_init(sprite_index);
   smjxxd_world_start_wave();
-  smjxxd_gun_spawn_metralha_bullet();
 }
 
 int main(bool resetType) {

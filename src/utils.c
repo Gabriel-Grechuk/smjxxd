@@ -32,8 +32,21 @@ inline f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t) {
 
 inline bool smjxxd_utils_check_overlap(GameObject *obj1, GameObject *obj2) {
   if (obj1->box.left > obj2->box.right) {
-    DEBUG_LOG("Hit!");
     return true;
   } else
     return false;
+}
+
+inline void smjxxd_utils_close_array_gaps(GameObject *arr, u8 n) {
+  for (u8 i = 0; i < n; i++)
+    if (arr[i].type == NONE) {
+      // Fetch next and replace.
+      for (u8 j = i; j < n; j++) {
+        if (arr[j].type != NONE) {
+          arr[i] = arr[j];
+          arr[j] = (GameObject){.type = NONE};
+          break;
+        }
+      }
+    }
 }

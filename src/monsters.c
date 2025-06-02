@@ -32,6 +32,7 @@ inline void smjxxd_monster_init(GameObject *mob, MobType type) {
                             smjxxd_utils_random_floor_position(), -4, -4,
                             PAL_MOBS, sprite_index);
 
+    mob->type = ZOMBIE;
     mob->health = 100;
     mob->speed_x = smjxxd_utils_random_speed();
     smjxxd_game_object_update_boundbox(mob->x, mob->y, mob);
@@ -99,6 +100,7 @@ inline void smjxxd_monster_despawn(GameObject *mob) {
   *mob = (GameObject){0};
   // TODO: Here should be a array reordering to close eventual gaps in the
   // bullet list array.
+  smjxxd_utils_close_array_gaps(monster_list, monster_count);
   --monster_count;
 }
 

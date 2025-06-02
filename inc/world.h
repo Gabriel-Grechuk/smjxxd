@@ -16,7 +16,7 @@ typedef struct {
 } WaveMonsters;
 
 // 7 waves 0 - 6;
-static u8 wave = 0;
+extern u8 wave;
 
 /**
  * Monsters per level.
@@ -26,64 +26,7 @@ static u8 wave = 0;
  * NOTE: keep all zombies until the other mobs have sprites.
  */
 
-static WaveMonsters waves[7][MONSTER_TYPE_COUNT] = {
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-};
+extern WaveMonsters waves[7][MONSTER_TYPE_COUNT];
 
 /**
  * Updates the world elements.

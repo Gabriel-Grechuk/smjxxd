@@ -5,6 +5,66 @@
 #include "monsters.h"
 #include "utils.h"
 
+u8 wave = 0;
+WaveMonsters waves[7][MONSTER_TYPE_COUNT] = {
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+    {
+        {.type = ZOMBIE, .amount = 10},
+        {.type = SKELETON, .amount = 0},
+        {.type = MUTANT, .amount = 0},
+        {.type = GHOST, .amount = 0},
+        {.type = IMP, .amount = 0},
+        {.type = BOSS, .amount = 0},
+    },
+};
+
 extern u8 bullet_count;
 extern GameObject bullet_list[];
 
@@ -17,6 +77,10 @@ void smjxxd_world_spawn(WaveMonsters *wave);
  * Module implementations.
  */
 inline void smjxxd_world_update() {
+  if (!bullet_count && monster_count) {
+    smjxxd_gun_spawn_metralha_bullet();
+  }
+
   GameObject *mob = &monster_list[0];
   for (u8 i = 0; i < monster_count; i++, mob++) {
     mob->x += mob->speed_x;
