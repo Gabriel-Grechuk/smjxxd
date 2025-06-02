@@ -16,11 +16,11 @@ inline void smjxxd_gun_spawn_metralha_bullet() {
 
   // TODO: Select the monster to shoot and apply damage.
   bullet->speed_x = smjxxd_utils_get_velocity_to_reach_point(
-      bullet->x, monster_list[9].x - monster_list[9].w_offset, FIX16(2));
+      bullet->x, monster_list[9].x - monster_list[9].w_offset, FIX16(4));
   bullet->speed_y = smjxxd_utils_get_velocity_to_reach_point(
-      bullet->y, monster_list[9].y - monster_list[9].h_offset, FIX16(2));
+      bullet->y, monster_list[9].y - monster_list[9].h_offset, FIX16(4));
 
-  bullet->damage = 25;
+  bullet->damage = 200;
 
   smjxxd_game_object_update_boundbox(bullet->x, bullet->y, bullet);
 

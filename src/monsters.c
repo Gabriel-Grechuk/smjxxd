@@ -31,6 +31,8 @@ inline void smjxxd_monster_init(GameObject *mob, MobType type) {
     smjxxd_game_object_init(mob, &spr_zombie, SCREEN_W + random() % 10,
                             smjxxd_utils_random_floor_position(), -4, -4,
                             PAL_MOBS, sprite_index);
+
+    mob->health = 100;
     mob->speed_x = smjxxd_utils_random_speed();
     smjxxd_game_object_update_boundbox(mob->x, mob->y, mob);
     break;
@@ -90,6 +92,14 @@ inline void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
     mob->shield = smjxxd_utils_drain(mob->shield, damage);
   else if (mob->health > 0)
     mob->health = smjxxd_utils_drain(mob->health, damage);
+}
+
+inline void smjxxd_monster_despanw(GameObject *mob) {
+  SPR_releaseSprite(mob->sprite);
+  *mob = (GameObject){0};
+  // TODO: Here should be a array reordering to close eventual gaps in the
+  // bullet list array.
+  --monster_count;
 }
 
 /******************************************************************************

@@ -49,6 +49,9 @@ inline void smjxxd_world_check_collisions() {
       if (smjxxd_utils_check_overlap(bullet, mob)) {
         smjxxd_monster_apply_damage(mob, bullet, 0);
         smjxxd_gun_despawn_bullet(bullet);
+
+        if (mob->health <= 0)
+          smjxxd_monster_despanw(mob);
       }
     }
   }

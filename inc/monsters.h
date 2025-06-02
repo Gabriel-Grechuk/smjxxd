@@ -19,5 +19,9 @@ void smjxxd_monster_init(GameObject *mob, MobType type);
  */
 void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
                                  u8 distance);
+/**
+ * Despawn the monster.
+ */
+void smjxxd_monster_despanw(GameObject *mob);
 
 #endif
