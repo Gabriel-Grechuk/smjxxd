@@ -22,6 +22,6 @@ void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
 /**
  * Despawn the monster.
  */
-void smjxxd_monster_despanw(GameObject *mob);
+void smjxxd_monster_despawn(GameObject *mob);
 
 #endif

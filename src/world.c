@@ -51,7 +51,7 @@ inline void smjxxd_world_check_collisions() {
         smjxxd_gun_despawn_bullet(bullet);
 
         if (mob->health <= 0)
-          smjxxd_monster_despanw(mob);
+          smjxxd_monster_despawn(mob);
       }
     }
   }

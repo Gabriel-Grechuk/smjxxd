@@ -94,7 +94,7 @@ inline void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
     mob->health = smjxxd_utils_drain(mob->health, damage);
 }
 
-inline void smjxxd_monster_despanw(GameObject *mob) {
+inline void smjxxd_monster_despawn(GameObject *mob) {
   SPR_releaseSprite(mob->sprite);
   *mob = (GameObject){0};
   // TODO: Here should be a array reordering to close eventual gaps in the
