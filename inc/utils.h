@@ -1,11 +1,10 @@
 #ifndef _SMJXXD_UTILS_H_
 #define _SMJXXD_UTILS_H_
 
-#include <genesis.h>
 #include "globals.h"
+#include <genesis.h>
 
 // DEBUG util
-#ifdef DEBUG
 
 #define DEBUG_LOG(X) (KLog(X))
 #define DEBUG_LOG_NUM(X, Y) (KLog_U1(X, Y))
@@ -31,11 +30,6 @@ u16 smjxxd_utils_random_floor_position();
  * Random positioning in the floor.
  */
 f16 smjxxd_utils_random_speed();
-
-/**
- * Convert seconds to frames.
- */
-f16 smjxxd_utils_seconds_to_frames(f16 t);
 
 /**
  * Return the amount of velocity a object need to intersect a point in N secs.
