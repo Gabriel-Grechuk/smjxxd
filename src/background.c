@@ -1,4 +1,5 @@
 #include "background.h"
+#include "globals.h"
 
 u16 smjxxd_background_init(u16 ind) {
   VDP_setPlaneSize(64, 64, TRUE);

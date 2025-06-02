@@ -26,12 +26,14 @@ inline f16 smjxxd_utils_random_speed() {
   return (f16)num;
 }
 
-inline u16 smjxxd_utils_seconds_to_frames(f16 t) {
+inline f16 smjxxd_utils_seconds_to_frames(f16 t) {
   // For small seconds you may get a 0 here. You should check for this if you
   // face a "no movement" bug.
-  return fix16ToInt(t * 60);
+  return FIX16(t * 60);
 }
 
+// TODO: Fix this shitty number conversion
 inline f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t) {
-  return (pf - pi) * FIX16(smjxxd_utils_seconds_to_frames(t));
+  return (fix16ToInt(pf) - fix16ToInt(pi)) * smjxxd_utils_seconds_to_frames(t);
+  // return 0.5;
 }

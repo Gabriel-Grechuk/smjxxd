@@ -25,6 +25,7 @@
 
 #define NUMBER_OF_JOYPADS 2
 
-static u16 sprite_index = TILE_USER_INDEX;
+// Sprite index
+extern u16 sprite_index;
 
 #endif

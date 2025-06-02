@@ -6,6 +6,9 @@
 #include "resources.h"
 #include "utils.h"
 
+u8 monster_count = 0;
+GameObject monster_list[MONSTERS_AMOUNT];
+
 /**
  * TODO:
  * Make the mortar and explosives damage a function of the distance of the mob

@@ -8,12 +8,14 @@
 #ifdef DEBUG
 
 #define DEBUG_LOG(X) (KLog(X))
-#define DEBUG_LOG_NUM(X, Y) (KLog_F1(X, Y))
+#define DEBUG_LOG_NUM(X, Y) (KLog_U1(X, Y))
+#define DEBUG_LOG_NUM_F(X, Y) (KLog_F1(X, Y))
 
 #else
 
 #define DEBUG_LOG(X)
 #define DEBUG_LOG_NUM(X, Y)
+#define DEBUG_LOG_NUM_F(X, Y)
 
 #endif
 
@@ -33,7 +35,7 @@ f16 smjxxd_utils_random_speed();
 /**
  * Convert seconds to frames.
  */
-u16 smjxxd_utils_seconds_to_frames(f16 t);
+f16 smjxxd_utils_seconds_to_frames(f16 t);
 
 /**
  * Return the amount of velocity a object need to intersect a point in N secs.

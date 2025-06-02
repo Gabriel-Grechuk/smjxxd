@@ -1,13 +1,16 @@
 #include <genesis.h>
 #include <sprite_eng.h>
 
-#include "globals.h"
+#include "guns.h"
+#include "monsters.h"
 
 #include "background.h"
 #include "game_object.h"
+#include "globals.h"
 #include "utils.h"
 #include "world.h"
-#include "guns.h"
+
+u16 sprite_index = TILE_USER_INDEX;
 
 void game_init() {
   VDP_setScreenWidth320();

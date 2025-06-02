@@ -3,12 +3,11 @@
 
 #include "game_object.h"
 
-
 #define MONSTERS_AMOUNT 10
 #define MONSTERS_ON_SCREEN 6
 
-static u8 monster_count = 0;
-static GameObject monster_list[MONSTERS_AMOUNT];
+extern u8 monster_count;
+extern GameObject monster_list[];
 
 /**
  * Initialize a mob.
