@@ -4,6 +4,7 @@
 #include <genesis.h>
 
 typedef enum {
+  NONE,
   // Guns.
   SNIPE,
   MORTAR,

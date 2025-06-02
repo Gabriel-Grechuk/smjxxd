@@ -10,4 +10,6 @@ extern GameObject bullet_list[];
 
 void smjxxd_gun_spawn_metralha_bullet();
 
+void smjxxd_gun_despawn_bullet(GameObject *bullet);
+
 #endif

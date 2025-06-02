@@ -32,6 +32,7 @@ inline void smjxxd_monster_init(GameObject *mob, MobType type) {
                             smjxxd_utils_random_floor_position(), -4, -4,
                             PAL_MOBS, sprite_index);
     mob->speed_x = smjxxd_utils_random_speed();
+    smjxxd_game_object_update_boundbox(mob->x, mob->y, mob);
     break;
 
   case SKELETON:

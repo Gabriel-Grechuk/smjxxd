@@ -2,9 +2,11 @@
 #define _SMJXXD_UTILS_H_
 
 #include "globals.h"
+#include "game_object.h"
 #include <genesis.h>
 
 // DEBUG util
+#ifdef DEBUG
 
 #define DEBUG_LOG(X) (KLog(X))
 #define DEBUG_LOG_NUM(X, Y) (KLog_U1(X, Y))
@@ -56,5 +58,10 @@ f16 smjxxd_utils_random_speed();
  *  f15 Vy = smjxxd_utils_get_velocity_to_reach_point(Pi.y, Pf.y, 1)
  */
 f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t);
+
+/**
+ * Check overlap.
+ */
+bool smjxxd_utils_check_overlap(GameObject *obj1, GameObject *obj2);
 
 #endif
