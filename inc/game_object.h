@@ -5,6 +5,7 @@
 
 typedef enum {
   NONE,
+
   // Guns.
   SNIPE,
   MORTAR,
