@@ -41,8 +41,8 @@ inline void smjxxd_world_update() {
 
     DEBUG_LOG("=================================");
     DEBUG_LOG_NUM("Updating bullet: ", (u32)bullet);
-    DEBUG_LOG_NUM_F("X vel:", bullet->speed_x);
-    DEBUG_LOG_NUM_F("Y vel:", bullet->speed_y);
+    DEBUG_LOG_NUM("X vel:", (u16)bullet->speed_x);
+    DEBUG_LOG_NUM("Y vel:", (u16)bullet->speed_y);
 
     DEBUG_LOG_NUM_F("X pos:", bullet->x);
     DEBUG_LOG_NUM_F("Y pos:", bullet->y);

@@ -14,10 +14,11 @@ inline void smjxxd_gun_spawn_metralha_bullet() {
   smjxxd_game_object_init(bullet, &spr_metralha_bullet, 150, 150, -2, -2,
                           PAL_GUNS, sprite_index);
 
+  // TODO: Select the monster to shoot and apply damage.
   bullet->speed_x = smjxxd_utils_get_velocity_to_reach_point(
-      bullet->x, monster_list[0].x, FIX16(2));
+      bullet->x, monster_list[9].x - monster_list[9].w_offset, FIX16(0.5));
   bullet->speed_y = smjxxd_utils_get_velocity_to_reach_point(
-      bullet->y, monster_list[0].y, FIX16(2));
+      bullet->y, monster_list[9].y - monster_list[9].h_offset, FIX16(0.5));
   ++bullet_count;
 
   DEBUG_LOG_NUM("Spawn bullet at address: ", (u32)bullet);
