@@ -17,6 +17,7 @@ void game_init() {
   SPR_init();
 
   sprite_index += smjxxd_background_init(sprite_index);
+  smjxxd_gun_spawn_metralha();
   smjxxd_world_start_wave();
 }
 

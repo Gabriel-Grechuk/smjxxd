@@ -9,10 +9,13 @@
 u8 bullet_count = 0;
 GameObject bullet_list[BULLET_AMOUNT];
 
+u8 guns_count = 0;
+GameObject gun_list[GUNS_AMOUNT];
+
 inline void smjxxd_gun_spawn_metralha_bullet() {
   GameObject *bullet = &bullet_list[0];
-  smjxxd_game_object_init(bullet, &spr_metralha_bullet, 80, 150, 0, 0,
-                          PAL_GUNS, sprite_index);
+  smjxxd_game_object_init(bullet, &spr_metralha_bullet, 80, 170, 0, 0, PAL_GUNS,
+                          sprite_index);
 
   // Always targets the last monster from the list.
   bullet->speed_x = smjxxd_utils_get_velocity_to_reach_point(
@@ -41,6 +44,12 @@ inline void smjxxd_gun_spawn_metralha_bullet() {
   DEBUG_LOG_NUM("Left: ", bullet->box.left);
   DEBUG_LOG_NUM("Right: ", bullet->box.right);
   DEBUG_LOG_NUM("Damage: ", bullet->damage);
+}
+
+inline void smjxxd_gun_spawn_metralha() {
+  GameObject *gun = &gun_list[0];
+  smjxxd_game_object_init(gun, &spr_metralha, 40, 160, 0, 0, PAL_GUNS,
+                          sprite_index);
 }
 
 void smjxxd_gun_despawn_bullet(GameObject *bullet) {
