@@ -78,4 +78,9 @@ void smjxxd_game_object_update_boundbox(f16 x, f16 y, GameObject *obj);
  */
 void smjxxd_game_object_clamp_screen(GameObject *obj);
 
+/**
+ * Checks if the bullet is out of screen bounds.
+ */
+bool smjxxd_game_object_out_of_bounds(GameObject *obj);
+
 #endif

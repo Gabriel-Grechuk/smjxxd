@@ -31,7 +31,10 @@ inline f16 smjxxd_utils_get_velocity_to_reach_point(f16 pi, f16 pf, f16 t) {
 }
 
 inline bool smjxxd_utils_check_overlap(GameObject *obj1, GameObject *obj2) {
-  if (obj1->box.left > obj2->box.right) {
+  if (obj1->box.left > obj2->box.right &&
+      // TODO: Fix bullet bound box before uncommenting this line.
+      // obj1->box.top > obj2->box.top &&
+      obj1->box.bottom < obj2->box.bottom) {
     return true;
   } else
     return false;

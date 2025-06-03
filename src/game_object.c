@@ -35,3 +35,12 @@ void smjxxd_game_object_clamp_screen(GameObject *obj) {
   obj->x = clamp(obj->x, 0, FIX16(SCREEN_W - obj->w));
   obj->y = clamp(obj->y, 0, FIX16(SCREEN_H - obj->h));
 }
+
+inline bool smjxxd_game_object_out_of_bounds(GameObject *obj) {
+  if (obj->box.left > SCREEN_W || obj->box.top > SCREEN_H ||
+      obj->box.bottom < 0 || obj->box.right < 0)
+    return true;
+
+  else
+    return false;
+}

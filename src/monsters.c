@@ -98,8 +98,6 @@ inline void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
 inline void smjxxd_monster_despawn(GameObject *mob) {
   SPR_releaseSprite(mob->sprite);
   *mob = (GameObject){0};
-  // TODO: Here should be a array reordering to close eventual gaps in the
-  // bullet list array.
   smjxxd_utils_close_array_gaps(monster_list, monster_count);
   --monster_count;
 }

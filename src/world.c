@@ -110,6 +110,9 @@ inline void smjxxd_world_check_collisions() {
     // Resets the bullet pointer.
     GameObject *bullet = &bullet_list[0];
     for (u8 j = 0; j < bullet_count; j++, bullet++) {
+      if (smjxxd_game_object_out_of_bounds(bullet))
+        smjxxd_gun_despawn_bullet(bullet);
+
       if (smjxxd_utils_check_overlap(bullet, mob)) {
         smjxxd_monster_apply_damage(mob, bullet, 0);
         smjxxd_gun_despawn_bullet(bullet);
