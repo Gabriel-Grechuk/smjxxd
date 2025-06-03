@@ -1,7 +1,11 @@
 {
     "files.associations": {
         "genesis.h": "c",
-        "sprite_eng.h": "c"
+        "sprite_eng.h": "c",
+        "game_object.h": "c",
+        "utils.h": "c",
+        "resources.h": "c",
+        "guns.h": "c"
     },
     "cSpell.words": [
         "smjxxd"

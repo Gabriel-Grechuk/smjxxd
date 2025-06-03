@@ -1,10 +1,13 @@
-#include "mob.h"
+#include "monsters.h"
 
 #include <tools.h>
 
 #include "globals.h"
 #include "resources.h"
 #include "utils.h"
+
+u8 monster_count = 0;
+GameObject monster_list[MONSTERS_AMOUNT];
 
 /**
  * TODO:
@@ -22,13 +25,17 @@ u16 smjxxd_boss_damage_rules(GameObject *bullet);
 /******************************************************************************
  * Module implementations.
  */
-inline void smjxxd_mob_init(GameObject *mob, MobType type) {
+inline void smjxxd_monster_init(GameObject *mob, MobType type) {
   switch (type) {
   case ZOMBIE:
     smjxxd_game_object_init(mob, &spr_zombie, SCREEN_W + random() % 10,
-                            smjxxd_utils_random_floor_position(), 0, 0,
+                            smjxxd_utils_random_floor_position(), -4, -4,
                             PAL_MOBS, sprite_index);
+
+    mob->type = ZOMBIE;
+    mob->health = 100;
     mob->speed_x = smjxxd_utils_random_speed();
+    smjxxd_game_object_update_boundbox(mob->x, mob->y, mob);
     break;
 
   case SKELETON:
@@ -48,8 +55,8 @@ inline void smjxxd_mob_init(GameObject *mob, MobType type) {
   }
 }
 
-inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
-                                    u8 distance) {
+inline void smjxxd_monster_apply_damage(GameObject *mob, GameObject *bullet,
+                                        u8 distance) {
   u16 damage = 0;
 
   switch (mob->type) {
@@ -86,6 +93,13 @@ inline void smjxxd_mob_apply_damage(GameObject *mob, GameObject *bullet,
     mob->shield = smjxxd_utils_drain(mob->shield, damage);
   else if (mob->health > 0)
     mob->health = smjxxd_utils_drain(mob->health, damage);
+}
+
+inline void smjxxd_monster_despawn(GameObject *mob) {
+  SPR_releaseSprite(mob->sprite);
+  *mob = (GameObject){0};
+  smjxxd_utils_close_array_gaps(monster_list, monster_count);
+  --monster_count;
 }
 
 /******************************************************************************

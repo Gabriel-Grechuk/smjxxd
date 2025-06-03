@@ -8,8 +8,6 @@
  * positioning, bullets and hits/clips.
  */
 
-#define MONSTERS_AMOUNT 10
-#define MONSTERS_ON_SCREEN 6
 #define MONSTER_TYPE_COUNT 6
 
 typedef struct {
@@ -18,9 +16,7 @@ typedef struct {
 } WaveMonsters;
 
 // 7 waves 0 - 6;
-static u8 wave = 0;
-static u8 mob_count = 0;
-static GameObject monster_list[MONSTERS_AMOUNT];
+extern u8 wave;
 
 /**
  * Monsters per level.
@@ -30,66 +26,7 @@ static GameObject monster_list[MONSTERS_AMOUNT];
  * NOTE: keep all zombies until the other mobs have sprites.
  */
 
-static WaveMonsters waves[7][MONSTER_TYPE_COUNT] = {
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-
-    {
-        {.type = ZOMBIE, .amount = 10},
-        {.type = SKELETON, .amount = 0},
-        {.type = MUTANT, .amount = 0},
-        {.type = GHOST, .amount = 0},
-        {.type = IMP, .amount = 0},
-        {.type = BOSS, .amount = 0},
-    },
-};
+extern WaveMonsters waves[7][MONSTER_TYPE_COUNT];
 
 /**
  * Updates the world elements.
@@ -97,8 +34,13 @@ static WaveMonsters waves[7][MONSTER_TYPE_COUNT] = {
 void smjxxd_world_update();
 
 /**
- * Spawn the monsters in the world.
+ * Start the monsters wave.
  */
-void smjxxd_world_spawn_monsters();
+void smjxxd_world_start_wave();
+
+/**
+ * Check the collisions between bullets and monsters;
+ */
+void smjxxd_world_check_collisions();
 
 #endif

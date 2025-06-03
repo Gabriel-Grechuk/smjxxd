@@ -3,5 +3,7 @@
 
 extern const Image img_background;
 extern const SpriteDefinition spr_zombie;
+extern const SpriteDefinition spr_metralha_bullet;
+extern const SpriteDefinition spr_metralha;
 
 #endif // _RES_RESOURCES_H_

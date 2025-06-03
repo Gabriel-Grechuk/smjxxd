@@ -1,19 +1,24 @@
 #include <genesis.h>
 #include <sprite_eng.h>
 
-#include "globals.h"
+#include "guns.h"
+#include "monsters.h"
 
 #include "background.h"
 #include "game_object.h"
+#include "globals.h"
 #include "utils.h"
 #include "world.h"
+
+u16 sprite_index = TILE_USER_INDEX;
 
 void game_init() {
   VDP_setScreenWidth320();
   SPR_init();
 
   sprite_index += smjxxd_background_init(sprite_index);
-  smjxxd_world_spawn_monsters();
+  smjxxd_gun_spawn_metralha();
+  smjxxd_world_start_wave();
 }
 
 int main(bool resetType) {
